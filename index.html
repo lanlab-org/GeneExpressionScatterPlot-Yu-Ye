@@ -1,0 +1,206 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+	<head>
+		<link rel="stylesheet" type="text/css" href="css/header.css" />
+		<link href="c3/c3.css" rel="stylesheet" type="text/css">
+		<script type="text/javascript" src="jquery/jquery-3.3.1.min.js"></script>
+		<script src="d3/d3.min.js" charset="utf-8"></script>
+		<script src="c3/c3.min.js"></script>
+		<link rel="stylesheet" type="text/css" href="css/normalize.css" />
+		<link rel="stylesheet" type="text/css" href="css/demo.css">
+		<link rel="stylesheet" type="text/css" href="css/index.css" />
+		<script type="text/javascript" src="js/download2.js"></script>
+
+		<script type="text/javascript" src="js/pearsonCorrelation.js"></script>
+		<script type="text/javascript" src="js/pvalue.js"></script>
+		<link rel="stylesheet" href="css/jquery.datatables.min.css" />
+		<link rel="stylesheet" href="css/buttons.dataTables.min.css" />
+
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<title>文件选择</title>
+	</head>
+
+	<body bgcolor="#f9f9f9">
+		<header class="header-navigation" id="header">
+			<nav> <a class="link" href="javascript:location.reload();" title="File choose">文件选择</a> <a class="link" href="#"
+				 title="Guide for use" onclick="switchToUse()">使用指南</a> </nav>
+		</header>
+
+		<div class="topCenter" id="guide_1">使用指南</div>
+		<div class="topCenter" id="plot_1">散点图</div>
+		<div class="topCenter" id="UIchoose_1">文件选择</div>
+
+		<hr size="2px" width="90%" align="left" color="#000000" />
+
+		<div class="guide-box" id="guide-box">
+			<div class="download_block" id="guide_2">
+				<div class="introduce_word">1.示范文件格式如下</div>
+				<table width="1000" border="0" height="180">
+					<tr>
+						<td width="605">g1.json: 基因1 &quot;实验编号A&quot;:&quot;结果数值B&quot;</td>
+						<td width="385"><a href="#" onclick="download_g1()">样例下载g1.json</a></td>
+					</tr>
+					<tr>
+						<td>g2.json: 基因2 &quot;实验编号A&quot;:&quot;结果数值B&quot;</td>
+						<td><a href="#" onclick="download_g2()">样例下载g2.json</a></td>
+					</tr>
+					<tr>
+						<td>info.json:信息匹配情况 &quot;实验编号X&quot;:{类型名:&quot;Type&quot;,详细信息:&quot;detail&quot;}</td>
+						<td><a href="#" onclick="download_info()">样例下载info.json</a></td>
+					</tr>
+				</table>
+			</div>
+
+			<div class="download_block" style="height:600px; margin-bottom:50px;" id="guide_3">
+				<div class="introduce_word">2.使用及细节说明</div>
+				<table width="800" border="0">
+					<tr>
+						<td class="detailexplain">1）散点的呈现以及各个类型点的细节说明
+							<br />
+							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;在将g1,g2,以及info文件提交前请您保证文件的正确性，若g1,g2为空文件，或其中某些数据类型出现问题时会进行相应报错并要求重传，若info文件为空则所有的点都显示为未知点，要求必须上传三个对应的文件，否则无法提交。<br />
+							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;在文件成功上传后会进行所有散点的呈现，点击下方的相应类型的开关，可以实现对应类型点的暂时隐藏，便于特定点的查询。开关会按顺序在下方呈现，方便您查找同一类型值。鼠标在移动至图中的某散点上时，页面右侧将会显示该类型相应信息，如类型名、数量，相关性系数等信息。若您想快速得到某个点的信息，可点击下方"cancel
+							all"实现全部点的消失，再进行目标点的点击进行显示。</p>
+						</td>
+					</tr>
+					<tr>
+						<td class="detailexplain"><br />2）同一类型的散点关于g1和g2的相关性系数及p-value
+							<br />
+							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;在进入该页面后，将会同时进行对所有类型的散点的信息处理，计算出每一类型关于g1和g2的相关性系数和双尾p-value，并在下方用表格进行显示，同时可通过点击标题（如p-value）进行对相应值的大小排序。若您需要，可在表格顶部对信息进行导出，生成相应的.xlsx,.pdf,.csv等文件，便于您后期数据的处理。</td>
+						<br />
+					</tr>
+					<tr>
+						<td>
+							<br />
+							<br />
+							<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;如果您在使用中有任何建议或疑问，如对计算值的正确性存在疑惑等，请联系我们邮箱94516876@qq.com，感谢您的信赖与支持。</p>
+						</td>
+					</tr>
+				</table>
+			</div>
+		</div>
+
+		<div class="container_choose" id="container_choose">
+			<div id="chart"> </div>
+			<div class="cancel_block" onclick="cancel_choose()">
+				<div class="pic_block"></div>hide all
+			</div>
+			<div class="cancel_block" onclick="appear_choose()">
+				<div class="pic_block" style="background-color:#39C"></div>show all
+			</div>
+		</div>
+		<div class="useRate" id="useRate">
+			<p class="words" style="margin-left:-10px;">信息使用率</p>
+			<p>g1.json <span id="g1_use"></span>/<span id="g1_all"></span></p>
+			<p>g2.json <span id="g2_use"></span>/<span id="g2_all"></span></p>
+			<p>info.json <span id="info_use"></span>/<span id="info_all"></span>
+			</p>
+		</div>
+		<div class="plot_right" id="explain">
+			<table width="100%" height="220px" border="0" cellpadding="20px">
+				<caption class="cap">类型描述</caption>
+				<tr>
+					<td width="39%" class="head">类型名：</td>
+					<td width="61%" id="type_name">&nbsp;</td>
+				</tr>
+				<tr>
+					<td width="39%" class="head">数量：</td>
+					<td width="61%" id="type_number">&nbsp;</td>
+				</tr>
+				<tr>
+					<td class="head">相关性系数：</td>
+					<td id="type_cof">&nbsp;</td>
+
+				</tr>
+				<tr>
+					<td class="head">P-value：</td>
+					<td id="type_pvalue">&nbsp;</td>
+
+				</tr>
+				<tr>
+					<td class="head">细节说明：</td>
+					<td id="type_detail">&nbsp;</td>
+				</tr>
+			</table>
+		</div>
+		<div class="noteblock" id="UIchoose_2">
+			<form name="one">
+				<table width="400" height="200" border="0">
+					<tr>
+						<td width="192" class="words">选择g1.json</td>
+						<td><input type="file" id="fi1" style="display:none;" onchange="Deal_data1()" />
+							<a href="#">
+								<div class="btn" onclick="document.one.fi1.click()">g1.json</div>
+							</a></td>
+					</tr>
+					<tr>
+						<td class="words">选择g2.json</td>
+						<td><input type="file" id="fi2" style="display:none;" onchange="Deal_data2()" />
+							<a href="#">
+								<div class="btn" onclick="document.one.fi2.click()">g2.json</div>
+							</a></td>
+					</tr>
+					<tr>
+						<td class="words">选择info.json</td>
+						<td width="198">
+							<input type="file" id="fi3" style="display:none;" onchange="Deal_data3()" />
+							<a href="#">
+								<div class="btn" onclick="document.one.fi3.click()">info.json</div>
+							</a></td>
+					</tr>
+				</table>
+			</form>
+			<div class="ribtn" id="UIchoose_7" onclick="switchToPlot()"><a href="#">提交</a></div>
+			<div class="words" style=" font-size:20px; font-weight:500; margin-left:-32px;" id="UIchoose_4">
+				<p>&nbsp;</p>
+				<p>注意：</p>
+			</div>
+			<div class="note_word" style="padding-left:5px; line-height:25px;" id="UIchoose_5">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;请按照实际情况进行选择，并保证数据的可行性。若有疑问或初次使用，请点击使用指南。
+			</div>
+		</div>
+		<div class="for_cont" id="for_conte">
+			<table width="400" border="0">
+				<tr><td><div class="expl">g1.json</div><textarea rows="5" cols="90" id="cont_g1"></textarea></td></tr>
+				<tr><td><div class="expl">g2.json</div><textarea rows="5" cols="90" id="cont_g2"></textarea></td></tr>
+				<tr><td><div class="expl">info.json</div><textarea rows="5" cols="90" id="cont_info"></textarea></td></tr>
+			</table>
+		</div>
+
+		<script type="text/javascript">
+			var new_scroll_position = 0;
+			var last_scroll_position;
+			var header = document.getElementById("header");
+			window.addEventListener('scroll', function(e) {
+				last_scroll_position = window.scrollY;
+				if (new_scroll_position < last_scroll_position && last_scroll_position > 80) {
+					header.classList.remove("slideDown");
+					header.classList.add("slideUp");
+				} else if (new_scroll_position > last_scroll_position) {
+					header.classList.remove("slideUp");
+					header.classList.add("slideDown");
+				}
+				new_scroll_position = last_scroll_position;
+			});
+		</script>
+
+		<div id="TableInfo">
+			<table id="example" class="display" role="grid" aria-describedby="example_info">
+				<thead></thead>
+				<tbody></tbody>
+			</table>
+		</div>
+
+		<div class="footer"><a>Copyright © 2019 tiger and rabbit</a></div>
+	</body>
+
+	<script src="jquery/jquery.min.js"></script>
+	<script src="tablejs/jquery.datatables.min.js"></script>
+	<script src="tablejs/dataTables.buttons.min.js"></script>
+	<script src="tablejs/jszip.min.js"></script>
+	<script src="tablejs/buttons.html5.min.js"></script>
+	<script src="tablejs/buttons.flash.min.js"></script>
+	<script src="tablejs/pdfmake.min.js"></script>
+	<script src="tablejs/vfs_fonts.js"></script>
+	<script src="tablejs/buttons.print.min.js"></script>
+	<script type="text/javascript" src="js/OMG.js"></script>
+</html>
