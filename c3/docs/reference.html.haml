@@ -52,12 +52,12 @@
           = partial :reference_menu_item, locals: { id: 'data.colors' }
           = partial :reference_menu_item, locals: { id: 'data.hide' }
           = partial :reference_menu_item, locals: { id: 'data.empty.label.text' }
-          -#= partial :reference_menu_item, locals: { id: 'data.filter' }
           = partial :reference_menu_item, locals: { id: 'data.selection.enabled' }
           = partial :reference_menu_item, locals: { id: 'data.selection.grouped' }
           = partial :reference_menu_item, locals: { id: 'data.selection.multiple' }
           = partial :reference_menu_item, locals: { id: 'data.selection.draggable' }
           = partial :reference_menu_item, locals: { id: 'data.selection.isselectable' }
+          = partial :reference_menu_item, locals: { id: 'data.stack.normalize' }
           = partial :reference_menu_item, locals: { id: 'data.onclick' }
           = partial :reference_menu_item, locals: { id: 'data.onmouseover' }
           = partial :reference_menu_item, locals: { id: 'data.onmouseout' }
@@ -108,6 +108,7 @@
           = partial :reference_menu_item, locals: { id: 'axis.y.default' }
           = partial :reference_menu_item, locals: { id: 'axis.y2.show' }
           = partial :reference_menu_item, locals: { id: 'axis.y2.inner' }
+          = partial :reference_menu_item, locals: { id: 'axis.y2.type' }
           = partial :reference_menu_item, locals: { id: 'axis.y2.max' }
           = partial :reference_menu_item, locals: { id: 'axis.y2.min' }
           = partial :reference_menu_item, locals: { id: 'axis.y2.inverted' }
@@ -122,13 +123,10 @@
 
           %li Grid
           = partial :reference_menu_item, locals: { id: 'grid.x.show' }
-          -#= partial :reference_menu_item, locals: { id: 'grid.x.type' }
           = partial :reference_menu_item, locals: { id: 'grid.x.lines' }
           = partial :reference_menu_item, locals: { id: 'grid.y.show' }
           = partial :reference_menu_item, locals: { id: 'grid.y.lines' }
           = partial :reference_menu_item, locals: { id: 'grid.y.ticks' }
-          -#= partial :reference_menu_item, locals: { id: 'grid.focus.show' }
-          -#= partial :reference_menu_item, locals: { id: 'grid.lines.front' }
 
           %li Region
           = partial :reference_menu_item, locals: { id: 'regions' }
@@ -150,9 +148,7 @@
           = partial :reference_menu_item, locals: { id: 'tooltip.format.value' }
           = partial :reference_menu_item, locals: { id: 'tooltip.position' }
           = partial :reference_menu_item, locals: { id: 'tooltip.contents' }
-          -#= partial :reference_menu_item, locals: { id: 'tooltip.init.show' }
-          -#= partial :reference_menu_item, locals: { id: 'tooltip.init.x' }
-          -#= partial :reference_menu_item, locals: { id: 'tooltip.init.position' }
+          = partial :reference_menu_item, locals: { id: 'tooltip.horizontal' }
 
           %li Subchart
           = partial :reference_menu_item, locals: { id: 'subchart.show', experimental: true }
@@ -186,7 +182,6 @@
           %li Bar
           = partial :reference_menu_item, locals: { id: 'bar.width' }
           = partial :reference_menu_item, locals: { id: 'bar.width.ratio' }
-          -#= partial :reference_menu_item, locals: { id: 'bar.width.max' }
           = partial :reference_menu_item, locals: { id: 'bar.zerobased' }
 
           %li Pie
@@ -194,12 +189,14 @@
           = partial :reference_menu_item, locals: { id: 'pie.label.format' }
           = partial :reference_menu_item, locals: { id: 'pie.label.threshold' }
           = partial :reference_menu_item, locals: { id: 'pie.expand' }
+          = partial :reference_menu_item, locals: { id: 'pie.padAngle' }
 
           %li Donut
           = partial :reference_menu_item, locals: { id: 'donut.label.show' }
           = partial :reference_menu_item, locals: { id: 'donut.label.format' }
           = partial :reference_menu_item, locals: { id: 'donut.label.threshold' }
           = partial :reference_menu_item, locals: { id: 'donut.expand' }
+          = partial :reference_menu_item, locals: { id: 'donut.padAngle' }
           = partial :reference_menu_item, locals: { id: 'donut.width' }
           = partial :reference_menu_item, locals: { id: 'donut.title' }
 
@@ -211,6 +208,20 @@
           = partial :reference_menu_item, locals: { id: 'gauge.max' }
           = partial :reference_menu_item, locals: { id: 'gauge.units' }
           = partial :reference_menu_item, locals: { id: 'gauge.width' }
+
+          %li Spline
+          = partial :reference_menu_item, locals: { id: 'spline.interpolation.type' }
+
+          %li Stanford
+          = partial :reference_menu_item, locals: { id: 'stanford.scaleMin' }
+          = partial :reference_menu_item, locals: { id: 'stanford.scaleMax' }
+          = partial :reference_menu_item, locals: { id: 'stanford.scaleWidth' }
+          = partial :reference_menu_item, locals: { id: 'stanford.scaleFormat' }
+          = partial :reference_menu_item, locals: { id: 'stanford.colors' }
+          = partial :reference_menu_item, locals: { id: 'stanford.padding' }
+          = partial :reference_menu_item, locals: { id: 'stanford.texts' }
+          = partial :reference_menu_item, locals: { id: 'stanford.lines' }
+          = partial :reference_menu_item, locals: { id: 'stanford.regions' }
 
           %li.margin-medium-top
             %strong API
@@ -244,19 +255,18 @@
           = partial :reference_menu_item, locals: { id: 'api.data.names' }
           = partial :reference_menu_item, locals: { id: 'api.data.colors' }
           = partial :reference_menu_item, locals: { id: 'api.data.axes' }
-          -#= partial :reference_menu_item, locals: { id: 'api.category' }
-          -#= partial :reference_menu_item, locals: { id: 'api.categories' }
           = partial :reference_menu_item, locals: { id: 'api.x' }
           = partial :reference_menu_item, locals: { id: 'api.xs' }
-          -#= partial :reference_menu_item, locals: { id: 'api.color' }
           = partial :reference_menu_item, locals: { id: 'api.axis.labels' }
           = partial :reference_menu_item, locals: { id: 'api.axis.min' }
           = partial :reference_menu_item, locals: { id: 'api.axis.max' }
           = partial :reference_menu_item, locals: { id: 'api.axis.range' }
+          = partial :reference_menu_item, locals: { id: 'api.axis.types' }
           = partial :reference_menu_item, locals: { id: 'api.legend.show' }
           = partial :reference_menu_item, locals: { id: 'api.legend.hide' }
-          -#= partial :reference_menu_item, locals: { id: 'api.tooltip.show' }
-          -#= partial :reference_menu_item, locals: { id: 'api.tooltip.hide' }
+          = partial :reference_menu_item, locals: { id: 'api.subchart.isShown' }
+          = partial :reference_menu_item, locals: { id: 'api.subchart.show' }
+          = partial :reference_menu_item, locals: { id: 'api.subchart.hide' }
           = partial :reference_menu_item, locals: { id: 'api.zoom' }
           = partial :reference_menu_item, locals: { id: 'api.unzoom' }
           = partial :reference_menu_item, locals: { id: 'api.zoom.enable' }
@@ -320,6 +330,13 @@
           = partial :reference_menu_item, locals: { id: 'class.c3-ygrids' }
           = partial :reference_menu_item, locals: { id: 'class.c3-ygrid-line' }
           = partial :reference_menu_item, locals: { id: 'class.c3-ygrid-lines' }
+          = partial :reference_menu_item, locals: { id: 'class.c3-stanford-elements' }
+          = partial :reference_menu_item, locals: { id: 'class.c3-stanford-line' }
+          = partial :reference_menu_item, locals: { id: 'class.c3-stanford-lines' }
+          = partial :reference_menu_item, locals: { id: 'class.c3-stanford-region' }
+          = partial :reference_menu_item, locals: { id: 'class.c3-stanford-regions' }
+          = partial :reference_menu_item, locals: { id: 'class.c3-stanford-text' }
+          = partial :reference_menu_item, locals: { id: 'class.c3-stanford-texts' }
           = partial :reference_menu_item, locals: { id: 'class.c3-axis' }
           = partial :reference_menu_item, locals: { id: 'class.c3-axis-x' }
           = partial :reference_menu_item, locals: { id: 'class.c3-axis-x-label' }
@@ -917,6 +934,7 @@
           %li area-step
           %li bar
           %li scatter
+          %li stanford
           %li pie
           %li donut
           %li gauge
@@ -941,6 +959,8 @@
             %a( href="/samples/chart_bar.html" ) Bar Chart
           %li
             %a( href="/samples/chart_scatter.html" ) Scatter Chart
+          %li
+            %a( href="/samples/chart_stanford.html" ) Stanford Chart
           %li
             %a( href="/samples/chart_pie.html" ) Pie Chart
           %li
@@ -1062,6 +1082,8 @@
         %p The values must be an array for each data and it should include an object that has <span class="code">start</span>, <span class="code">end</span>, <span class="code">style</span>. If <span class="code">start</span> is not set, the start will be the first data point. If <span class="code">end</span> is not set, the end will be the last data point.
         %br
         %p Currently this option supports only line chart and dashed style. If this option specified, the line will be dashed only in the regions.
+        %br
+        %p An optional <span class="code">label</span> property can be provided to display a label for the region. If a label option is not specified, no label will be displayed for the region. For each region, you may also specify the <span class="code">paddingY</span> and <span class="code">paddingX</span> options to control the position of label text. Finally, a <span class="code">vertical</span> option can be used to identify whether or not the label text should be rotated 90 degrees.
         %h5 Default:
         <code>{}</code>
         %h5 Format:
@@ -1070,7 +1092,10 @@
             %code.html.javascript
               data: {
               &nbsp;&nbsp;regions: {
-              &nbsp;&nbsp;&nbsp;&nbsp;data1: [{'start':1, 'end':2, 'style':'dashed'},{'start':3}],
+              &nbsp;&nbsp;&nbsp;&nbsp;data1: [
+              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{'start':1, 'end':2, 'style':'dashed'},
+              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{'start':3, label:"Region 2", paddingX:2, paddingY:2, vertical=true}
+              &nbsp;&nbsp;&nbsp;&nbsp;],
               &nbsp;&nbsp;&nbsp;&nbsp;...
               &nbsp;&nbsp;}
               }
@@ -1257,6 +1282,25 @@
               data: {
               &nbsp;&nbsp;selection: {
               &nbsp;&nbsp;&nbsp;&nbsp;isselectable: function (d) { ... }
+              &nbsp;&nbsp;}
+              }
+      %hr
+
+      %section
+        %h3
+          = partial :reference_item_link, locals: { id: 'data.stack.normalize' }
+        %p Set the stacking to be normalized
+        %br
+        %p For stacking, the `data.groups` option should be set and have positive values. The yAxis will be set in percentage value (0 ~ 100%).
+        %h5 Default:
+        <code>false</code>
+        %h5 Format:
+        %div.sourcecode
+          %pre
+            %code.html.javascript
+              data: {
+              &nbsp;&nbsp;stack: {
+              &nbsp;&nbsp;&nbsp;&nbsp;normalize: true
               &nbsp;&nbsp;}
               }
       %hr
@@ -1664,7 +1708,7 @@
         %br
         %p If this option is set <code>true</code>, when a tick's text on the x-axis is too long, it splits the text into multiple lines in order to avoid text overlapping.
         %h5 Default:
-        <code>false</code>
+        <code>true</code>
         %h5 Format:
         %div.sourcecode
           %pre
@@ -1887,7 +1931,26 @@
       %section
         %h3
           = partial :reference_item_link, locals: { id: 'axis.y.type' }
-        %p not yet
+        %p Scale type for Y axis.
+        %h5 Available Values:
+        %ul
+          %li linear
+          %li time¹
+          %li timeseries¹
+          %li log² <span class="secondary label">Experimental</span>
+        %p ¹: The <code>timeseries</code> scale is an alias of <code>time</code>.
+        %p ²: The <code>log</code> scale is experimental and may not work in all cases (stacked, etc.)
+        %h5 Default:
+        <code>linear</code>
+        %h5 Format:
+        %div.sourcecode
+          %pre
+            %code.html.javascript
+              axis: {
+              &nbsp;&nbsp;y: {
+              &nbsp;&nbsp;&nbsp;&nbsp;type: 'linear'
+              &nbsp;&nbsp;}
+              }
       %hr
 
       %section
@@ -2180,6 +2243,31 @@
               axis: {
               &nbsp;&nbsp;y2: {
               &nbsp;&nbsp;&nbsp;&nbsp;inner: true
+              &nbsp;&nbsp;}
+              }
+      %hr
+
+      %section
+        %h3
+          = partial :reference_item_link, locals: { id: 'axis.y2.type' }
+        %p Scale type for Y2 axis.
+        %h5 Available Values:
+        %ul
+          %li linear
+          %li time¹
+          %li timeseries¹
+          %li log² <span class="secondary label">Experimental</span>
+        %p ¹: The <code>timeseries</code> scale is an alias of <code>time</code>.
+        %p ²: The <code>log</code> scale is experimental and may not work in all cases (stacked, etc.)
+        %h5 Default:
+        <code>linear</code>
+        %h5 Format:
+        %div.sourcecode
+          %pre
+            %code.html.javascript
+              axis: {
+              &nbsp;&nbsp;y2: {
+              &nbsp;&nbsp;&nbsp;&nbsp;type: 'linear'
               &nbsp;&nbsp;}
               }
       %hr
@@ -2851,6 +2939,25 @@
 
       %section
         %h3
+          = partial :reference_item_link, locals: { id: 'tooltip.horizontal' }
+        %p Show the tooltips based on the horizontal position of the mouse.
+        %h5 Default:
+        <code>undefined</code>
+        %h5 Format:
+        %div.sourcecode
+          %pre
+            %code.html.javascript
+              tooltip: {
+              &nbsp;&nbsp;horizontal: true
+              }
+        %h5 Example:
+        %ul
+          %li
+            %a( href="/samples/tooltip_horizontal.html" ) Horizontal tooltip
+      %hr
+
+      %section
+        %h3
           = partial :reference_item_link, locals: { id: 'subchart.show', experimental: true }
         %p Show sub chart on the bottom of the chart.
         %h5 Default:
@@ -3306,6 +3413,21 @@
 
       %section
         %h3
+          = partial :reference_item_link, locals: { id: 'pie.padAngle' }
+        %p Sets the angular separation between each adjacent arc.
+        %h5 Default:
+        <code>0</code>
+        %h5 Format:
+        %div.sourcecode
+          %pre
+            %code.html.javascript
+              pie: {
+              &nbsp;&nbsp;padAngle: .1
+              }
+      %hr
+
+      %section
+        %h3
           = partial :reference_item_link, locals: { id: 'donut.label.show' }
         %p Show or hide label on each donut piece.
         %h5 Default:
@@ -3369,6 +3491,21 @@
             %code.html.javascript
               donut: {
               &nbsp;&nbsp;expand: false
+              }
+      %hr
+
+      %section
+        %h3
+          = partial :reference_item_link, locals: { id: 'donut.padAngle' }
+        %p Sets the angular separation between each adjacent arc.
+        %h5 Default:
+        <code>0</code>
+        %h5 Format:
+        %div.sourcecode
+          %pre
+            %code.html.javascript
+              donut: {
+              &nbsp;&nbsp;padAngle: .1
               }
       %hr
 
@@ -3515,6 +3652,265 @@
               gauge: {
               &nbsp;&nbsp;width: 10
               }
+      %hr
+
+      %section
+        %h3
+          = partial :reference_item_link, locals: { id: 'spline.interpolation.type' }
+        %p Set type of curve interpolation.
+        %h5 Default:
+        <code>cardinal</code>
+        %p Available interpolation are:
+        %ul
+          %li linear
+          %li linear-closed
+          %li basis
+          %li basis-open
+          %li basis-closed
+          %li bundle
+          %li cardinal <code>[default]</code>
+          %li cardinal-open
+          %li cardinal-closed
+          %li monotone
+          %li step
+          %li step-before
+          %li step-after
+        %h5 Format:
+        %div.sourcecode
+          %pre
+            %code.html.javascript
+              interpolation: {
+              &nbsp;&nbsp;type: "monotone"
+              }
+      %hr
+
+      %section
+        %h3
+          = partial :reference_item_link, locals: { id: 'stanford.scaleMin' }
+        %p Change the minimum value of the stanford color scale.
+        %h5 Default:
+        <code>auto</code>
+        %h5 Format:
+        %div.sourcecode
+          %pre
+            %code.html.javascript
+              stanford: {
+              &nbsp;&nbsp;scaleMin: 1
+              }
+        %h5 Example:
+        %ul
+          %li
+            %a( href="/samples/chart_stanford.html" ) Stanford Chart
+      %hr
+
+      %section
+        %h3
+          = partial :reference_item_link, locals: { id: 'stanford.scaleMax' }
+        %p Change the maximum value of the stanford color scale.
+        %h5 Default:
+        <code>auto</code>
+        %h5 Format:
+        %div.sourcecode
+          %pre
+            %code.html.javascript
+              stanford: {
+              &nbsp;&nbsp;scaleMax: 10000
+              }
+        %h5 Example:
+        %ul
+          %li
+            %a( href="/samples/chart_stanford.html" ) Stanford Chart
+      %hr
+
+      %section
+        %h3
+          = partial :reference_item_link, locals: { id: 'stanford.scaleWidth' }
+        %p Change the width of the stanford color scale.
+        %h5 Default:
+        <code>20</code>
+        %h5 Format:
+        %div.sourcecode
+          %pre
+            %code.html.javascript
+              stanford: {
+              &nbsp;&nbsp;scaleWidth: 20
+              }
+        %h5 Example:
+        %ul
+          %li
+            %a( href="/samples/chart_stanford.html" ) Stanford Chart
+      %hr
+
+      %section
+        %h3
+          = partial :reference_item_link, locals: { id: 'stanford.scaleFormat' }
+        %p Set formatter for stanford color scale axis tick text.
+        %br
+        %p This option accepts the string <span class="code">'pow10'</span>, a d3.format object and any function you define.
+        %h5 Default:
+        <code>d3.format("d")</code> - decimal notation, rounded to integer
+        %h5 Format:
+        %div.sourcecode
+          %pre
+            %code.html.javascript
+              stanford: {
+              &nbsp;&nbsp;scaleFormat: 'pow10'
+              &nbsp;&nbsp;// or d3.format("d")
+              &nbsp;&nbsp;// or a function
+              }
+        %h5 Example:
+        %ul
+          %li
+            %a( href="/samples/chart_stanford.html" ) Stanford Chart
+      %hr
+
+      %section
+        %h3
+          = partial :reference_item_link, locals: { id: 'stanford.scaleValues' }
+        %p Set the values for stanford color scale axis tick text.
+        %br
+        %p This option accepts a function that returns an array of numbers.
+        %h5 Default:
+        <code>undefined</code>
+        %h5 Format:
+        %div.sourcecode
+          %pre
+            %code.html.javascript
+              stanford: {
+              &nbsp;&nbsp;scaleValues: (minValue, maxValue) => {
+              &nbsp;&nbsp;&nbsp;&nbsp;const step = (maxValue - minValue) / 10;
+              &nbsp;&nbsp;&nbsp;&nbsp;return d3.range(minValue, maxValue + step, step);
+              &nbsp;&nbsp;}
+              }
+        %h5 Example:
+        %ul
+          %li
+            %a( href="/samples/chart_stanford.html" ) Stanford Chart
+      %hr
+
+      %section
+        %h3
+          = partial :reference_item_link, locals: { id: 'stanford.colors' }
+        %p Set the color interpolator for stanford color scale.
+        %br
+        %p This option is a d3.interpolate* object or any function you define that receives a value between 0 and 1, and returns a color as string.
+        %h5 Default:
+        <code>d3.interpolateHslLong(d3.hsl(250, 1, 0.5), d3.hsl(0, 1, 0.5))</code>
+        %h5 Format:
+        %div.sourcecode
+          %pre
+            %code.html.javascript
+              stanford: {
+              &nbsp;&nbsp;colors: d3.interpolatePlasma
+              }
+        %h5 Example:
+        %ul
+          %li
+            %a( href="/samples/chart_stanford.html" ) Stanford Chart
+      %hr
+
+      %section
+        %h3
+          = partial :reference_item_link, locals: { id: 'stanford.padding' }
+        %p Set the padding for the stanford color scale.
+
+        %p This option accepts <code>array</code> including <code>object</code> that has <span class="code">top</span>, <span class="code">right</span>, <span class="code">bottom</span> and <span class="code">left</span>.
+
+        %h5 Default:
+        <code>undefined</code>
+        %h5 Format:
+        %div.sourcecode
+          %pre
+            %code.html.javascript
+              stanford: {
+              &nbsp;&nbsp;padding: {
+              &nbsp;&nbsp;&nbsp;&nbsp;top: 15,
+              &nbsp;&nbsp;&nbsp;&nbsp;right: 0,
+              &nbsp;&nbsp;&nbsp;&nbsp;bottom: 0,
+              &nbsp;&nbsp;&nbsp;&nbsp;left: 0
+              &nbsp;&nbsp;}
+              }
+        %h5 Example:
+        %ul
+          %li
+            %a( href="/samples/chart_stanford.html" ) Stanford Chart
+      %hr
+
+      %section
+        %h3
+          = partial :reference_item_link, locals: { id: 'stanford.texts' }
+        %p Show text anywhere inside the chart.
+        %br
+        %p This option accepts <code>array</code> including <code>object</code> that has <span class="code">x</span>, <span class="code">y</span>, <span class="code">content</span> and <span class="code">class</span>. The key <span class="code">class</span> is optional.
+        %p <span class="code">x</span> and <span class="code">y</span> are the starting position of the text, <span class="code">content</span> is the text content to show. If <span class="code">class</span> is set, the text element will have it as class.
+        %h5 Default:
+        <code>[]</code>
+        %h5 Format:
+        %div.sourcecode
+          %pre
+            %code.html.javascript
+              stanford: {
+              &nbsp;&nbsp;texts: [
+              &nbsp;&nbsp;&nbsp;&nbsp;{x: 1, y: 4, content: 'my custom text here', class: 'text-1-4'}
+              &nbsp;&nbsp;]
+              }
+        %hr
+
+        %section
+          %h3
+            = partial :reference_item_link, locals: { id: 'stanford.lines' }
+          %p Show lines anywhere inside the chart.
+          %br
+          %p This option accepts <code>array</code> including <code>object</code> that has <span class="code">value_x1</span>, <span class="code">value_y1</span>, <span class="code">value_x2</span>, <span class="code">value_y2</span> and <span class="code">class</span>. The key <span class="code">class</span> is optional.
+          %p <span class="code">value_x1</span> and <span class="code">value_y1</span> are the starting position of the line, <span class="code">value_x2</span> and <span class="code">value_y2</span> are the ending position of the line. If <span class="code">class</span> is set, the line element will have it as class.
+          %h5 Default:
+          <code>[]</code>
+          %h5 Format:
+          %div.sourcecode
+            %pre
+              %code.html.javascript
+                stanford: {
+                &nbsp;&nbsp;lines: [
+                &nbsp;&nbsp;&nbsp;&nbsp;{value_x1: 0, value_y1: 0, value_x2: 65, value_y2: 65, class: "line-0-65"}
+                &nbsp;&nbsp;]
+                }
+        %hr
+
+        %section
+          %h3
+            = partial :reference_item_link, locals: { id: 'stanford.regions' }
+          %p Show regions anywhere inside the chart.
+          %br
+          %p This option accepts <code>array</code> including <code>object</code> that has <span class="code">points</span>, <span class="code">text</span>, <span class="code">opacity</span> and <span class="code">class</span>. The keys <span class="code">text</span>, <span class="code">opacity</span> and <span class="code">class</span> are optional.
+          %p <span class="code">points</span> accepts <code>array</code> including <code>object</code> that has <span class="code">x</span> and <span class="code">y</span> that represent the coordinates of each point.
+          %p <span class="code">text</span> accepts <code>function</code> that returns a <code>string</code> with the text to show. If the current chart type is stanford the function receives <span class="code">value</span> and <span class="code">percentage</span> as parameters that represent the number of points in this region.
+          %p <span class="code">opacity</span> accepts a number between 0 and 1, the default <span class="code">opacity</span> is 0.2.
+          %p If <span class="code">class</span> is set, the line element will have it as class.
+          %b
+          %h5 Note:
+          %p Points should be added in  a counter-clockwise direction to close the polygon.
+          %h5 Default:
+          <code>[]</code>
+          %h5 Format:
+          %div.sourcecode
+            %pre
+              %code.html.javascript
+                stanford: {
+                &nbsp;&nbsp;regions: [
+                &nbsp;&nbsp;&nbsp;&nbsp;{
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;points: [ // add points counter-clockwise
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{x: 0, y: 0},
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{x: 40, y: 40},
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{x: 0, y: 40}
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;],
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;text: function (value, percentage) {
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return "Normal Operations: " + value + " (" + percentage + "%)";
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;},
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;opacity: 0.2, // 0 to 1
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;class: "region-triangle-1"
+                &nbsp;&nbsp;&nbsp;&nbsp;}
+                &nbsp;&nbsp;]
+                }
       %hr
 
       %br
@@ -4548,6 +4944,29 @@
 
       %section
         %h3
+          = partial :reference_item_link, locals: { id: 'api.axis.types' }
+        %p Get and set axis y/y2 types.
+        %h5 Arguments:
+        %div.sourcecode
+          %pre
+            %code.html.javascript
+              \.axis.types(types)
+        %p <span class="code">types</span>&nbsp;&nbsp;<code>Object</code>
+        %p If <span class="code">types</span> is given, specified axis' type value will be updated. If no argument is given, the current types for y/y2 axis will be returned.
+
+        %h5 Example:
+        %div.sourcecode
+          %pre
+            %code.html.javascript
+              \// Update axis' types
+              chart.axis.types({
+              &nbsp;&nbsp;y: 'linear',
+              &nbsp;&nbsp;y2: 'log'
+              });
+      %hr
+
+      %section
+        %h3
           = partial :reference_item_link, locals: { id: 'api.legend.show' }
         %p Show legend for each target.
         %h5 Arguments:
@@ -4576,7 +4995,6 @@
         %h3
           = partial :reference_item_link, locals: { id: 'api.legend.hide' }
         %p Hide legend for each target.
-        %h5 Arguments:
         %div.sourcecode
           %pre
             %code.html.javascript
@@ -4596,6 +5014,43 @@
               \
               \// Hide all legend.
               chart.legend.hide();
+      %hr
+
+      %section
+        %h3
+          = partial :reference_item_link, locals: { id: 'api.subchart.isShown' }
+        %p Returns <code>true</code> if the sub chart is shown.
+        %h5 Example:
+        %div.sourcecode
+          %pre
+            %code.html.javascript
+              if (chart.subchart.isShown()) {
+              &nbsp;&nbsp;// Sub chart is shown
+              }
+      %hr
+
+      %section
+        %h3
+          = partial :reference_item_link, locals: { id: 'api.subchart.show' }
+        %p Shows sub chart at the bottom of the chart.
+        %h5 Example:
+        %div.sourcecode
+          %pre
+            %code.html.javascript
+              \// Show sub chart
+              chart.subchart.show();
+      %hr
+
+      %section
+        %h3
+          = partial :reference_item_link, locals: { id: 'api.subchart.hide' }
+        %p Hides sub chart.
+        %h5 Example:
+        %div.sourcecode
+          %pre
+            %code.html.javascript
+              \// Hide sub chart
+              chart.subchart.hide();
       %hr
 
       %section
@@ -4988,6 +5443,41 @@
       %section
         %h3
           = partial :reference_item_link, locals: { id: 'class.c3-ygrid-lines' }
+        %p ...
+      %hr
+      %section
+        %h3
+          = partial :reference_item_link, locals: { id: 'class.c3-stanford-elements' }
+        %p ...
+      %hr
+      %section
+        %h3
+          = partial :reference_item_link, locals: { id: 'class.c3-stanford-line' }
+        %p ...
+      %hr
+      %section
+        %h3
+          = partial :reference_item_link, locals: { id: 'class.c3-stanford-lines' }
+        %p ...
+      %hr
+      %section
+        %h3
+          = partial :reference_item_link, locals: { id: 'class.c3-stanford-region' }
+        %p ...
+      %hr
+      %section
+        %h3
+          = partial :reference_item_link, locals: { id: 'class.c3-stanford-regions' }
+        %p ...
+      %hr
+      %section
+        %h3
+          = partial :reference_item_link, locals: { id: 'class.c3-stanford-text' }
+        %p ...
+      %hr
+      %section
+        %h3
+          = partial :reference_item_link, locals: { id: 'class.c3-stanford-texts' }
         %p ...
       %hr
       %section

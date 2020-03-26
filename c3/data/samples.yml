@@ -58,6 +58,10 @@ chart_area_stacked:
   title: Stacked Area Chart
   desc: Display as Stacked Area Chart.
 
+chart_stanford:
+  title: Stanford Chart
+  desc: Display as Stanford Chart.
+
 chart_combination:
   title: Combination Chart
   desc: Display all kinda charts up in here.
@@ -193,6 +197,10 @@ tooltip_grouped:
 tooltip_format:
   title: Tooltip Format
   desc: Set format for title and value on tooltip.
+
+tooltip_horizontal:
+  title: Horizontal Tooltip
+  desc: Show tooltips based on the horizontal position of the mouse.
 
 options_gridline:
   title: Grid Lines
