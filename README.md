@@ -2,7 +2,7 @@
 <img src="https://img.shields.io/badge/language-javascript-F1E05A.svg"/>        <img src="https://img.shields.io/github/last-commit/shijyuen/shijia.github.io.svg"/>
 ## 介绍
 2020年春季软件项目管理课程的基因表达散点图项目。
-[点此](https://github.com/lanlab-org/GeneExpressionScatterPlot-Yu-Ye/blob/master/README_en.md)查阅英文版本
+[点此](https://github.com/lanlab-org/GeneExpressionScatterPlot-Yu-Ye/blob/叶红霞-201736900115-ContributorList/README_en.md)查阅英文版本
 
 ## Contributor List
 
