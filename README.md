@@ -1,6 +1,9 @@
 # Gene-Expression-Scatter-Plot
 <img src="https://img.shields.io/badge/language-javascript-F1E05A.svg"/>        <img src="https://img.shields.io/github/last-commit/lanlab-org/GeneExpressionScatterPlot-Yu-Ye/叶红霞-201736900115-ContributorList.svg"/>
+<<<<<<< HEAD
 
+=======
+>>>>>>> c84b114a87f7be33dc51b327d83687af9ff54f8b
 ## 介绍
 2020年春季软件项目管理课程的基因表达散点图项目。
 [点此](https://github.com/lanlab-org/GeneExpressionScatterPlot-Yu-Ye/blob/叶红霞-201736900115-ContributorList/README_en.md)查阅英文版本
