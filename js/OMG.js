@@ -346,13 +346,11 @@ function calculate_correlation() {
 				},
 				buttons: [{extend: 'copyHtml5'},		//点击按钮可导出为各种形式的文件
 					{extend: 'excelHtml5',title: 'Data export'},
-					{extend: 'pdfHtml5',title: 'Data export'},
 					{extend: 'csvHtml5',title: 'Data export'},
 					{extend: 'print',}]
 			});
 			$(".buttons-copy").text('复制');
 			$(".buttons-excel").text('导出到excel');
-			$(".buttons-pdf").text('导出到pdf');
 			$(".buttons-csv").text('导出到csv');
 			$(".buttons-print").text('打印');
 		});

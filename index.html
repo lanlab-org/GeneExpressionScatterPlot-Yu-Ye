@@ -18,18 +18,18 @@
 		<link rel="stylesheet" href="css/buttons.dataTables.min.css" />
 
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-		<title>文件选择</title>
+		<title>Gene Expression Scatter Plot</title>
 	</head>
 
 	<body bgcolor="#f9f9f9">
 		<header class="header-navigation" id="header">
-			<nav> <a class="link" href="javascript:location.reload();" title="File choose">文件选择</a> <a class="link" href="#"
+			<nav> <a class="link" href="javascript:location.reload();" title="File choose">输入数据</a> <a class="link" href="#"
 				 title="Guide for use" onclick="switchToUse()">使用指南</a> </nav>
 		</header>
 
 		<div class="topCenter" id="guide_1">使用指南</div>
 		<div class="topCenter" id="plot_1">散点图</div>
-		<div class="topCenter" id="UIchoose_1">文件选择</div>
+		<div class="topCenter" id="UIchoose_1">输入数据</div>
 
 		<hr size="2px" width="90%" align="left" color="#000000" />
 
@@ -52,7 +52,7 @@
 				</table>
 			</div>
 
-			<div class="download_block" style="height:600px; margin-bottom:50px;" id="guide_3">
+			<div class="download_block" style="height:640px; margin-bottom:50px;" id="guide_3">
 				<div class="introduce_word">2.使用及细节说明</div>
 				<table width="800" border="0">
 					<tr>
@@ -64,16 +64,19 @@
 						</td>
 					</tr>
 					<tr>
-						<td class="detailexplain"><br />2）同一类型的散点关于g1和g2的相关性系数及p-value
+						<td class="detailexplain"><br />2）g1和g2的相关性系数及p-value等表格数据的操作说明
 							<br />
-							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;在进入该页面后，将会同时进行对所有类型的散点的信息处理，计算出每一类型关于g1和g2的相关性系数和双尾p-value，并在下方用表格进行显示，同时可通过点击标题（如p-value）进行对相应值的大小排序。若您需要，可在表格顶部对信息进行导出，生成相应的.xlsx,.pdf,.csv等文件，便于您后期数据的处理。</td>
+							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>1.表格字段。</b>分析基因的数据在散点图下方的表格中，共有4个字段：tissue(植物器官类型)，number(属于该tissue的样本个数)，correlation(g1和g2的相关性系数)，p-value(双尾P值)。<br />
+							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>2.排序。</b>如您要对表格数据进行排序，请用鼠标点击您要排序的字段，如correlation即可对相关性系数进行排序，点击奇数次实现从小到大排序，点击偶数次实现从大到小排序。<br />
+							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>3.检索。</b>如您要查找数据，可在表格右上方的检索框内输入检索数据，后台会自动在所有字段内查找包含了检索数据的内容，并时时地在表格中呈现所有匹配到的记录。<br />
+							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>4.导出。</b>如您需要，点击表格左上方的按钮即能复制、打印数据，或导出为相应的 .xlsx，.csv 格式文件，便于您后期数据的处理。</td>
 						<br />
 					</tr>
 					<tr>
 						<td>
 							<br />
 							<br />
-							<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;如果您在使用中有任何建议或疑问，如对计算值的正确性存在疑惑等，请联系我们邮箱94516876@qq.com，感谢您的信赖与支持。</p>
+							<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;如果您在使用中有任何建议或疑问，欢迎通过邮箱94516876@qq.com联系我们，感谢您的信赖与支持。</p>
 						</td>
 					</tr>
 				</table>
@@ -190,7 +193,7 @@
 			</table>
 		</div>
 
-		<div class="footer"><a>Copyright © 2019 tiger and rabbit</a></div>
+		<div class="footer"><a>Copyright © 2020 tiger and rabbit</a></div>
 	</body>
 
 	<script src="jquery/jquery.min.js"></script>
