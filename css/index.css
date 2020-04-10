@@ -161,13 +161,13 @@
 	text-decoration:underline;}
 .download_block:hover{
 	background-color: #FCFDFC;
-	box-shadow: 1px 15px 50px #cacaca;
+	box-shadow: 1px 10px 30px #cacaca;
 }
 .introduce_word{
 	font-size:23px;
 	font-family: "等线";
 	color:#000;
-	margin:20px 0 30px 30px;
+	margin:10px 0 15px 30px;
 	display: block;
 }
 .introduce_word:hover{
