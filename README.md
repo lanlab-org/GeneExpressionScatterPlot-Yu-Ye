@@ -47,7 +47,7 @@ cxzql-叶红霞-201736900115
 {"Sample01": 9.05, "Sample02": 7.20, "Sample03": 6.94, "Sample04": 6.34, "Sample05": 6.78}
 ```
 
-* info.json是每个样本的信息，JSON类型。格式为：`"样本编号X":{“类型名”:"Type",“详细信息”:"detail"}`。例如：
+* info.json是每个样本的信息，JSON类型。格式为：`"样本编号X":{"类型名":"Type","详细信息":"detail"}`。例如：
 
 ```json
  {"Sample01": {"category": "Type1", "detail": "TBA"}, "Sample02": {"category": "Type1", "detail": "TBA"}, "Sample03": {"category": "Type1", "detail": "TBA"}, "Sample04": {"category": "Type1", "detail": "TBA"}, "Sample05": {"category": "Type1", "detail": "TBA"}}
