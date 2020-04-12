@@ -38,15 +38,15 @@
 				<div class="introduce_word">1.示范文件格式如下</div>
 				<table width="1000" border="0" height="180">
 					<tr>
-						<td width="605">g1.json: 基因1 &quot;实验编号A&quot;:&quot;结果数值B&quot;</td>
+						<td width="605">g1.json基因1的格式： &quot;样本编号A&quot;:结果数值B;</td>
 						<td width="385"><a href="#" onclick="download_g1()">样例下载g1.json</a></td>
 					</tr>
 					<tr>
-						<td>g2.json: 基因2 &quot;实验编号A&quot;:&quot;结果数值B&quot;</td>
+						<td>g2.json基因2的格式： &quot;样本编号A&quot;:结果数值B</td>
 						<td><a href="#" onclick="download_g2()">样例下载g2.json</a></td>
 					</tr>
 					<tr>
-						<td>info.json:信息匹配情况 &quot;实验编号X&quot;:{类型名:&quot;Type&quot;,详细信息:&quot;detail&quot;}</td>
+						<td>info.json基因类型与详细信息的格式： &quot;样本编号X&quot;:{&quot类型名&quot:&quot;Type&quot;,&quot详细信息&quot:&quot;detail&quot;}</td>
 						<td><a href="#" onclick="download_info()">样例下载info.json</a></td>
 					</tr>
 				</table>
@@ -60,15 +60,15 @@
 							<br />
 							&nbsp;&nbsp;&nbsp;&nbsp;<b>1. 提交说明。</b>在将g1,g2,以及info文件提交前请您保证文件的正确性，若g1,g2为空文件，或其中某些数据类型出现问题时会进行相应报错并要求重传，若info文件为空则所有的点都显示为未知点，要求必须上传三个对应的文件，否则无法提交。在文件成功上传后会进行所有散点的呈现。<br />
 &nbsp;&nbsp;&nbsp;&nbsp;<b>2. 散点以及信息细节呈现。</b>在.json中的所有合法散点均会在屏幕左侧显示，右侧上方会显示点的最终呈现百分比。为优化视觉效果，坐标轴将根据点的分布自动分配。将鼠标移至某一类型的散点上，右侧灰框中会呈现该类散点的类型名、数量以及细节说明等信息。鼠标旁也能显示该点的横纵坐标。<br />
-&nbsp;&nbsp;&nbsp;&nbsp;<b>3. 散点类型单独显示。</b>为方便您查找同一类型的散点，所有散点类型会按照字典序从小到大于散点图下方呈现，点击相应类型的开关，可以实现对应类型点的暂时显示和隐藏，便于特定点的查询。同时提供了全部隐藏以及全部显示开关便于您灵活处理，若您需要查看某一类型的散点，可先关闭所有散点的显示后打开特定散点即可。</td>
+&nbsp;&nbsp;&nbsp;&nbsp;<b>3. 散点类型单独显示。</b>为方便您查找同一类型的散点，所有散点类型会按照字典序于散点图下方呈现，点击相应类型的开关，可以实现对应类型点的暂时显示和隐藏，便于特定点的查询。同时提供了全部隐藏以及全部显示开关便于您灵活处理，若您需要查看某一类型的散点，可先关闭所有散点的显示后打开特定散点即可。</td>
 					</tr>
 					<tr>
 						<td class="detailexplain"><br />2）g1和g2的相关性系数及p-value等表格数据的操作说明
 							<br />
-							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>1.表格字段。</b>分析基因的数据在散点图下方的表格中，共有4个字段：tissue(植物器官类型)，number(属于该tissue的样本个数)，correlation(g1和g2的相关性系数)，p-value(双尾P值)。<br />
-							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>2.排序。</b>如您要对表格数据进行排序，请用鼠标点击您要排序的字段，如correlation即可对相关性系数进行排序，点击奇数次实现从小到大排序，点击偶数次实现从大到小排序。<br />
+							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>1.表格字段。</b>基因表达相关性分析结果在散点图下方的表格中，共有4个字段：tissue(植物器官类型)，number(属于该tissue的样本个数)，correlation(g1和g2的相关性系数)，p-value(双尾P值)。<br />
+							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>2.排序。</b>用鼠标点击您要排序的字段，如correlation即可对相关性系数进行排序，点击奇数次实现从小到大排序，点击偶数次实现从大到小排序。<br />
 							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>3.检索。</b>如您要查找数据，可在表格右上方的检索框内输入检索数据，后台会自动在所有字段内查找包含了检索数据的内容，并时时地在表格中呈现所有匹配到的记录。<br />
-							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>4.导出。</b>如您需要，点击表格左上方的按钮即能复制、打印数据，或导出为相应的 .xlsx，.csv 格式文件，便于您后期数据的处理。</td>
+							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>4.导出。</b>点击表格左上方的按钮即能复制、打印数据，或导出为相应的 .xlsx，.csv 格式文件，便于您后期数据的处理。</td>
 						<br />
 					</tr>
 					<tr>
