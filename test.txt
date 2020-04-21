@@ -9,10 +9,14 @@ Description: The user can choose the corresponding file to upload to the web pag
 Rationale: As the core function of the software, this function mainly provides a data visualization way for users, so that users can quickly scatter the required data.
 
 Input:
+g1.json:N2_n1_S10000_info_miss_rate0.00_g1.json
+g2.json:N2_n1_S10000_info_miss_rate0.00_g2.json
+info.json:N2_n1_S10000_info_miss_rate0.00_info.json
 
 Expected output: The file can be uploaded, the page can be displayed, the small data file response time does not exceed 2 seconds.
 
-Actual output:
+Actual output:After clicking submit, the display time is less than 2 seconds.
+
 
 Diagnosis:
 
@@ -327,8 +331,35 @@ Input:The data is exported as CSV.
 Expected output: Interface display is normal.
 
 Actual output:
+Inconsistent with display in web page.
+http://m.qpic.cn/psc?/V13TVzVU3hBV8n/tS3tY63exiZNUWwJevnZGttK*GKEA.K4QGjDJH6KBDyfyiuD4QWC.Qv5H7Dsyg1XMbdu7FixvwDD*VpokaJnXGcajXk4xvoSIsojNehY5sg!/b&bo=SAFGAQAAAAARFy4!&rf=viewer_4
 
-Diagnosis:
+Diagnosis: Export to CSV is still not normal.
+
+Status: F
+
+Signature: Wang Ruyun
+
+Date: 2020-4-20
+
+
+@T009b 
+
+Test title: test case for requirement 9
+
+Test for: RQ09
+
+Description: Data export, Chinese display does not appear garbled code
+
+Rationale:
+
+Input:The data is exported as CSV.
+
+Expected output: Interface display is normal.
+
+Actual output:
+
+Diagnosis: 
 
 Status: 
 
@@ -348,19 +379,19 @@ Description: Important features provide user friendly instructions.
 
 Rationale:
 
-Input:
+Input: Click to enter the user guide
 
 Expected output:The data analysis section features detailed user descriptions.
 
-Actual output:
+Actual output:http://m.qpic.cn/psc?/V13TVzVU3hBV8n/ZOHqlMnlPhi5393oWyanhK1zCxmclRTRhsEdVOq8ufrY6Fbef2ldak5DDkLSno7O7oHNfwsWf4PU2SsJE57S2g!!/b&bo=QwWCAQAAAAARB*U!&rf=viewer_4
 
 Diagnosis:
 
-Status: 
+Status: P
 
 Signature: Wang Ruyun
 
-Date: 
+Date: 2020-4-16
 
 
 @T010b
@@ -373,18 +404,18 @@ Description: Important features provide user friendly instructions.
 
 Rationale:
 
-Input:
+Input: Click to enter the user guide
 
 Expected output: The dot display section provides user friendly instructions.
 
-Actual output:
+Actual output: http://m.qpic.cn/psc?/V13TVzVU3hBV8n/ZOHqlMnlPhi5393oWyanhHWPz*mt3Ent*G.NUyScRxRy5v5PNsZ4XknXJy8f3Qz02.nqHVHI5QwEN64Rq.Cz4Q!!/b&bo=NwU2AgAAAAARBzY!&rf=viewer_4
 
 Diagnosis:
 
-Status: 
+Status: P
 
-Signature: 
+Signature: Wang Ruyun
 
-Date: 
+Date: 2020-4-16
 
 
