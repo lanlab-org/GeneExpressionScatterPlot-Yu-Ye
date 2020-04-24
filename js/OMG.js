@@ -20,8 +20,7 @@ function wrong(content) {
 }
 window.onload = function() {
 	disapp_plot();		//disapp_choose();
-	disapp_guide();
-	flag_g1 = flag_g2 = flag_info = 0;	//在刚进入网站的时候，将散点图以及用户指南相关的内容进行隐藏，数组中放入的是这些div的id，这样可以实现一次遍历
+	disapp_guide();     //在刚进入网站的时候，将散点图以及用户指南相关的内容进行隐藏，数组中放入的是这些div的id，这样可以实现一次遍历
 	g1_have_point = g2_have_point = g1_valid_point = g2_valid_point = info_all = info_use = 0;		//用来记录信息和点的利用率
 }
 
@@ -30,13 +29,14 @@ function Deal_data1() {		//对g1.json的处理，变量g1中将保存g1的json�
 	var reader = new FileReader();
 	reader.readAsText(file, "gbk");
 	reader.onload = function() {
+		flag_g1 = 0;
 		g1Text = this.result;
 		if (this.result == "" || this.result == "{}") {
 			wrong("您的g1.json内容文件为空，请在确认文件后在本页面刷新重试！");
 			flag_g1 = -1;
 		}	//判断g1中的文件是否为空，下面则是对这个信息的输出显示
 		var TEXT = this.result;
-		if (TEXT.length > 3500) TEXT = TEXT.slice(1, 3000);
+		if (TEXT.length > 3500) TEXT = TEXT.slice(1, 3000);		//控制文本长度
 		document.getElementById("cont_g1").innerHTML = TEXT;
 		if (this.result != undefined && flag_g1 != -1) {
 			var f = 0;
@@ -64,6 +64,7 @@ function Deal_data2() {		//对g2.json的处理，变量g2中将保存g2json数�
 	var reader = new FileReader();
 	reader.readAsText(file, "gbk");
 	reader.onload = function() {
+		flag_g2 = 0;
 		g2Text = this.result;
 		if (this.result == "" || this.result == "{}") {
 			wrong("您的g2.json内容文件为空，请在确认文件后在本页面刷新重试！");
@@ -97,6 +98,7 @@ function Deal_data3() {		//对info文件的处理，将json对象保存进info�
 	var reader = new FileReader();
 	reader.readAsText(file, "gdk");
 	reader.onload = function() {
+		flag_info = 0;
 		infoText = this.result;
 		if (this.result = null) {
 			wrong("您的info.json内容文件为空，请在确认文件后在本页面刷新重试！")
