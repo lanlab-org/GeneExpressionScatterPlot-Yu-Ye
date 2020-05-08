@@ -19,8 +19,9 @@ cxzql-叶红霞-201736900115
 
 - [x] Add user-friendly descriptions of important functions (the first part, that is, the description of the display part)
 - [x] Add user-friendly instructions for important functions (the second part, instructions for data analysis)
-- [ ] Solve the problem of page expansion and display confusion
+- [x] Solve the problem of page expansion and display confusion
 - [x] Fixed the problem that Chinese display garbled characters when data is exported to csv
+- [x] Fix file uploading bug
 - [ ] Streamline the code, you can add more friendly comments
 - [ ] Documentation
 - [ ] Code test

@@ -161,7 +161,7 @@ function Deal_data3() {		//对info文件的处理，将json对象保存进info�
 	}
 }
 
-function sortByKey(array) {
+function sortByKey(array) {//将InfoPoint中的元素排序，方便后续处理
 	return array.sort(function(a, b) {
 		var x = a[0];
 		var y = b[0];
@@ -458,14 +458,14 @@ function switchToUse() { //切换到用户指南
 	disapp_plot();
 }
 
-function cancel_choose() {
+function cancel_choose() {//快速隐藏所有点，方便后续勾选个别点查看
 	for (var aim in Pointout) {
 		console.log(aim);
 		chart.hide(aim);
 	}
 }
 
-function appear_choose() {
+function appear_choose() {//快速显示所有点
 	for (var aim in Pointout) {
 		chart.show(aim);
 	}
