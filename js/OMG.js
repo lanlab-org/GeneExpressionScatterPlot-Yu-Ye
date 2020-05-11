@@ -161,7 +161,8 @@ function Deal_data3() {		//对info文件的处理，将json对象保存进info�
 	}
 }
 
-function sortByKey(array) {//将InfoPoint中的元素排序，方便后续处理
+function sortByKey(array) {//将InfoPoint中的元素按照字典序从小到大排序，因为infoPoint存储了数据的x、y坐标名称，为了能确定同一个tissue的x、y值的位置，可通过排序后使x、y值成对出现
+							//比如tissue的名称为root，那么x我们命名为了root，y命名为了root!x，通过字典序排序可使它们紧挨，而不至于插入其他值导致混乱
 	return array.sort(function(a, b) {
 		var x = a[0];
 		var y = b[0];
