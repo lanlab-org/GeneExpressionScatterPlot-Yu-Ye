@@ -84,6 +84,8 @@ cxzql-叶红霞-201736900115
 ## Current Status
 我们共4人作为一个小组在改进这个项目，每周四进行每周总结(Weekly Review)，讨论进度和安排。
 
+[weekly_review.md](https://github.com/lanlab-org/GeneExpressionScatterPlot-Yu-Ye/blob/叶红霞-201736900115-ContributorList/docs/weekly_review.md)
+
 | 日期 | 主持人 | 书记员 |
 | ---- | ------ | ------ |
 | 4.23 | 余慧   | 袁世家 |
