@@ -15,16 +15,16 @@ info.json:N2_n1_S10000_info_miss_rate0.00_info.json
 
 Expected output: The file can be uploaded, the page can be displayed, the small data file response time does not exceed 2 seconds.
 
-Actual output:After clicking submit, the display time is less than 2 seconds.
+Actual output:After clicking submit, the display time is less than 1 seconds.
 
 
 Diagnosis:
 
-Status: 
+Status: P
 
 Signature: Wang Ruyun
 
-Date: 
+Date: 2020-4-20
 
 
 
@@ -39,18 +39,22 @@ Description: The user can choose the corresponding file to upload to the web pag
 Rationale: As the core function of the software, this function mainly provides a data visualization way for users, so that users can quickly scatter the required data.
 
 Input:
+g1.json:N2_n1_S20000_info_miss_rate0.00_g1.json
+g2.json:N2_n1_S20000_info_miss_rate0.00_g2.json
+info.json:N2_n1_S20000_info_miss_rate0.00_info.json
+
 
 Expected output: The file can be uploaded, the page can be displayed, the medium data file response time does not exceed 5 seconds.
 
-Actual output:
+Actual output:Response time does not exceed 2 seconds.
 
 Diagnosis:
 
-Status: 
+Status: P
 
 Signature: Wang Ruyun
 
-Date:
+Date:2020-4-20
 
 
 
@@ -68,7 +72,7 @@ Input:
 
 Expected output: The file can be uploaded, the page can be displayed, the big data file response time does not exceed 10 seconds.
 
-Actual output:
+Actual output:The amount of data is too large, the display time is too long, and there are problems with the display.
 
 Diagnosis:
 
