@@ -1,4 +1,4 @@
-# sWeekly review
+# Weekly review
 
 | 日期 | 主持人 | 书记员 |
 | ---- | ------ | ------ |
