@@ -71,6 +71,10 @@
 	line-height:45px;
 	font-weight:normal;
 	box-shadow: 1px 3px 3px #cacaca;
+	border-top-left-radius: 3px;
+    border-top-right-radius: 3px;
+	border-bottom-left-radius: 3px;
+	border-bottom-right-radius: 3px;
 }
 .ribtn a{
 	font-size:24px;
@@ -86,6 +90,10 @@
 	margin-left:120px;
 	display:block;
 	box-shadow: 1px 3px 3px #cacaca;
+	border-top-left-radius: 3px;
+    border-top-right-radius: 3px;
+	border-bottom-left-radius: 3px;
+	border-bottom-right-radius: 3px;
 }
 .ribtn a:hover{
 	margin-left:130px;
@@ -126,6 +134,7 @@
 	font-size:26px;
 	color:#000;
 	line-height:30px;
+	margin: 10px 0 5px 0;
 }
 .plot_right td.head{
 	font-size:23px;
