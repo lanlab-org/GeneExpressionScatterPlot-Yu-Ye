@@ -467,18 +467,22 @@ Description: Data export, Chinese display does not appear garbled code
 Rationale:
 
 Input:The data is exported as CSV.
+g1-30.json
+g2-30.json
+info-30.json
 
 Expected output: Interface display is normal.
 
 Actual output:
+https://b23.tv/1m0cSy
 
 Diagnosis: 
 
-Status: 
+Status:P2 
 
 Signature: Wang Ruyun
 
-Date: 
+Date: 2020-5-19
 
 
 
