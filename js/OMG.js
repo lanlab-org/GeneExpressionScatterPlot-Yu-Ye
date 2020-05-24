@@ -133,7 +133,7 @@ function Deal_data3() {		//对info文件的处理，将json对象保存进info�
 		for (var aim in info) {
 			var keys, yuanzu = info[aim];	//yuanzu为每一个元祖
 			keys = yuanzu[typename]; 	//得到每个tissue的名字
-			var pro = keys + "!x"; 	//将作为x轴的东西进行命名
+			var pro = keys + "!x"; 	//将作为x轴的东西进行命名，因为“!”的ASCII顺序排在比较前面的位置，且属于常用符号，方便对InfoPoint中的元素按照ASCII从小到大排序，让同一个tissue的xy值能排在一起，用“x”则是因为它代表x值
 			var tmp = {}; //将x轴与y轴的名字进行对应
 			tmp[keys] = pro;
 			info_all++; //记录信息总量
@@ -277,11 +277,11 @@ function calculate_correlation() {
 			allpoint_number = allpoint_dependent.length;
 			var depedent_number = dependent.length;
 			if (depedent_number < 2) {
-				var corr = "点数过少，不符合计算要求";//点数为1或0无法计算相关性系数
-				var tmp_pvalue = "点数过少，不符合计算要求";//点数为1或0无法计算p_value
+				var corr = "点数过少，无法计算相关性系数";//点数为1或0无法计算相关性系数
+				var tmp_pvalue = "点数过少，无法计算p-value";//点数为1或0无法计算p_value
 			} else if (depedent_number == 2) {
 				var corr = pearsonCorrelation(independent, dependent).toExponential(6); //计算相关性系数
-				var tmp_pvalue = "点数过少，不符合计算要求";//点数为2无法计算p_value
+				var tmp_pvalue = "点数过少，无法计算p-value";//点数为2无法计算p_value
 			} else {
 				var corr = pearsonCorrelation(independent, dependent).toExponential(6); //计算相关性系数
 				var tvalue = corr * Math.sqrt((dependent.length - 2) / (1 - corr * corr)); //分别计算每个type的t-value的值
@@ -293,11 +293,11 @@ function calculate_correlation() {
 			infomation[x_set[0]]["p_value"] = tmp_pvalue;
 		}
 		if (allpoint_number < 2) {
-			var allpoint_correlation = "点数过少，不符合计算要求";//allpoint_correlation用来计算所有点的相关性系数，不区分tissue类型
-			var allpoint_pvalue = "点数过少，不符合计算要求";//allpoint_pvalue用来计算所有点的p_value，不区分tissue类型
+			var allpoint_correlation = "点数过少，无法计算相关性系数";//allpoint_correlation用来计算所有点的相关性系数，不区分tissue类型
+			var allpoint_pvalue = "点数过少，无法计算p-value";//allpoint_pvalue用来计算所有点的p_value，不区分tissue类型
 		} else if (allpoint_number == 2) {
 			var allpoint_correlation = pearsonCorrelation(allpoint_independent, allpoint_dependent).toExponential(6); //计算所有点的相关性系数和p-value
-			var allpoint_pvalue = "点数过少，不符合计算要求";
+			var allpoint_pvalue = "点数过少，无法计算p-value";
 		} else {
 			var allpoint_correlation = pearsonCorrelation(allpoint_independent, allpoint_dependent).toExponential(6); //计算所有点的相关性系数和p-value
 			var allpoint_tvalue = allpoint_correlation * Math.sqrt((allpoint_dependent.length - 2) / (1 - allpoint_correlation *
