@@ -190,7 +190,7 @@ function GainPoint() {
 					var id = mp[aim[typename]];
 					infomation[aim[typename]][number]++; //该类型的点的数量加1
 					InfoPoint[id].push(g2[indg1]);
-					id = mp[aim[typename] + "!x"];
+					id = mp[aim[typename] + "!x"];//aim[typename] + "!x"为同一个tissue对应的另一个坐标值的名称，以此命名可方便将xy值在后续步骤中配对
 					InfoPoint[id].push(g1[indg1]);
 				}
 			}
@@ -277,11 +277,11 @@ function calculate_correlation() {
 			allpoint_number = allpoint_dependent.length;
 			var depedent_number = dependent.length;
 			if (depedent_number < 2) {
-				var corr = "点数过少，不符合计算要求";
-				var tmp_pvalue = "点数过少，不符合计算要求";
+				var corr = "点数过少，不符合计算要求";//点数为1或0无法计算相关性系数
+				var tmp_pvalue = "点数过少，不符合计算要求";//点数为1或0无法计算p_value
 			} else if (depedent_number == 2) {
 				var corr = pearsonCorrelation(independent, dependent).toExponential(6); //计算相关性系数
-				var tmp_pvalue = "点数过少，不符合计算要求";
+				var tmp_pvalue = "点数过少，不符合计算要求";//点数为2无法计算p_value
 			} else {
 				var corr = pearsonCorrelation(independent, dependent).toExponential(6); //计算相关性系数
 				var tvalue = corr * Math.sqrt((dependent.length - 2) / (1 - corr * corr)); //分别计算每个type的t-value的值
@@ -293,8 +293,8 @@ function calculate_correlation() {
 			infomation[x_set[0]]["p_value"] = tmp_pvalue;
 		}
 		if (allpoint_number < 2) {
-			var allpoint_correlation = "点数过少，不符合计算要求";
-			var allpoint_pvalue = "点数过少，不符合计算要求";
+			var allpoint_correlation = "点数过少，不符合计算要求";//allpoint_correlation用来计算所有点的相关性系数，不区分tissue类型
+			var allpoint_pvalue = "点数过少，不符合计算要求";//allpoint_pvalue用来计算所有点的p_value，不区分tissue类型
 		} else if (allpoint_number == 2) {
 			var allpoint_correlation = pearsonCorrelation(allpoint_independent, allpoint_dependent).toExponential(6); //计算所有点的相关性系数和p-value
 			var allpoint_pvalue = "点数过少，不符合计算要求";
@@ -328,7 +328,7 @@ function calculate_correlation() {
 					"</td><td>" + dataTable[i].p_value + "</td></tr>";
 				$("#example tbody").append(tbody);
 			}
-			$('#example').DataTable({
+			$('#example').DataTable({//格式化处理表格操作的特殊情况结果和页数提示
 				dom: 'Bfrtip',
 				language: {
 					emptyTable: '无符合条件的记录',
