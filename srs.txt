@@ -23,10 +23,6 @@ Correlation coefficient display.
 Detailed information display of scattered points (under mouse behavior).
 
 
-@RQ06
-
-Comment submission function.
-
 
 @RQ07
 
