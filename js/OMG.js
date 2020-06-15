@@ -6,6 +6,11 @@ var infomation = {},
 var validPoint = 0,
 	AllPoint = 0,
 	infouse = {};
+//infoPoint是一个储存数组的数组，它对应的是在c3.generate中数据data的columns要素。columns所需要的样式附在下方。所以我们将最开始出现的tissue作为x和y轴放入infoPoint，同时用mp来记录如tissue名为setosa的下标为多少。这样做可以方便我们在知道某一信息为setosa的点时，快速找到该下标进行push。
+//columns: [
+//["setosa_x", 3.5, 3.0, 3.2, 3.1, 3.6, 3.9, 3.4, 3.4, 2.9, 3.1, 3.7, 3.4, 3.0, 3.0, 4.0, 4.4, 3.9, 3.5, 3.8, 3.8, 3.4, 3.7, 3.6, 3.3, 3.4, 3.0, 3.4, 3.5, 3.4, 3.2, 3.1, 3.4, 4.1, 4.2, 3.1, 3.2, 3.5, 3.6, 3.0, 3.4, 3.5, 2.3, 3.2, 3.5, 3.8, 3.0, 3.8, 3.2, 3.7, 3.3],
+//["setosa", 0.2, 0.2, 0.2, 0.2, 0.2, 0.4, 0.3, 0.2, 0.2, 0.1, 0.2, 0.2, 0.1, 0.1, 0.2, 0.4, 0.4, 0.3, 0.3, 0.3, 0.2, 0.4, 0.2, 0.5, 0.2, 0.2, 0.4, 0.2, 0.2, 0.2, 0.2, 0.4, 0.1, 0.2, 0.2, 0.2, 0.2, 0.1, 0.2, 0.2, 0.3, 0.3, 0.2, 0.6, 0.4, 0.3, 0.2, 0.2, 0.2, 0.2]],
+
 var InfoPoint = new Array(),
 	Pointout = {},
 	mp = [],
@@ -20,8 +25,7 @@ function wrong(content) {
 }
 window.onload = function() {
 	disapp_plot();		//disapp_choose();
-	disapp_guide();
-	flag_g1 = flag_g2 = flag_info = 0;	//在刚进入网站的时候，将散点图以及用户指南相关的内容进行隐藏，数组中放入的是这些div的id，这样可以实现一次遍历
+	disapp_guide();     //在刚进入网站的时候，将散点图以及用户指南相关的内容进行隐藏，数组中放入的是这些div的id，这样可以实现一次遍历
 	g1_have_point = g2_have_point = g1_valid_point = g2_valid_point = info_all = info_use = 0;		//用来记录信息和点的利用率
 }
 
@@ -30,13 +34,14 @@ function Deal_data1() {		//对g1.json的处理，变量g1中将保存g1的json�
 	var reader = new FileReader();
 	reader.readAsText(file, "gbk");
 	reader.onload = function() {
+		flag_g1 = 0;
 		g1Text = this.result;
 		if (this.result == "" || this.result == "{}") {
 			wrong("您的g1.json内容文件为空，请在确认文件后在本页面刷新重试！");
 			flag_g1 = -1;
 		}	//判断g1中的文件是否为空，下面则是对这个信息的输出显示
 		var TEXT = this.result;
-		if (TEXT.length > 3500) TEXT = TEXT.slice(1, 3000);
+		if (TEXT.length > 3500) TEXT = TEXT.slice(1, 3000);		//控制文本长度
 		document.getElementById("cont_g1").innerHTML = TEXT;
 		if (this.result != undefined && flag_g1 != -1) {
 			var f = 0;
@@ -64,6 +69,7 @@ function Deal_data2() {		//对g2.json的处理，变量g2中将保存g2json数�
 	var reader = new FileReader();
 	reader.readAsText(file, "gbk");
 	reader.onload = function() {
+		flag_g2 = 0;
 		g2Text = this.result;
 		if (this.result == "" || this.result == "{}") {
 			wrong("您的g2.json内容文件为空，请在确认文件后在本页面刷新重试！");
@@ -97,6 +103,7 @@ function Deal_data3() {		//对info文件的处理，将json对象保存进info�
 	var reader = new FileReader();
 	reader.readAsText(file, "gdk");
 	reader.onload = function() {
+		flag_info = 0;
 		infoText = this.result;
 		if (this.result = null) {
 			wrong("您的info.json内容文件为空，请在确认文件后在本页面刷新重试！")
@@ -131,7 +138,7 @@ function Deal_data3() {		//对info文件的处理，将json对象保存进info�
 		for (var aim in info) {
 			var keys, yuanzu = info[aim];	//yuanzu为每一个元祖
 			keys = yuanzu[typename]; 	//得到每个tissue的名字
-			var pro = keys + "!x"; 	//将作为x轴的东西进行命名
+			var pro = keys + "!x"; 	//将作为x轴的东西进行命名，因为“!”的ASCII顺序排在比较前面的位置，且属于常用符号，方便对InfoPoint中的元素按照ASCII从小到大排序，让同一个tissue的xy值能排在一起，用“x”则是因为它代表x值
 			var tmp = {}; //将x轴与y轴的名字进行对应
 			tmp[keys] = pro;
 			info_all++; //记录信息总量
@@ -159,7 +166,8 @@ function Deal_data3() {		//对info文件的处理，将json对象保存进info�
 	}
 }
 
-function sortByKey(array) {
+function sortByKey(array) {//将InfoPoint中的元素按照字典序从小到大排序，因为infoPoint存储了数据的x、y坐标名称，为了能确定同一个tissue的x、y值的位置，可通过排序后使x、y值成对出现
+							//比如tissue的名称为root，那么x我们命名为了root，y命名为了root!x，通过字典序排序可使它们紧挨，而不至于插入其他值导致混乱
 	return array.sort(function(a, b) {
 		var x = a[0];
 		var y = b[0];
@@ -187,7 +195,7 @@ function GainPoint() {
 					var id = mp[aim[typename]];
 					infomation[aim[typename]][number]++; //该类型的点的数量加1
 					InfoPoint[id].push(g2[indg1]);
-					id = mp[aim[typename] + "!x"];
+					id = mp[aim[typename] + "!x"];//aim[typename] + "!x"为同一个tissue对应的另一个坐标值的名称，以此命名可方便将xy值在后续步骤中配对
 					InfoPoint[id].push(g1[indg1]);
 				}
 			}
@@ -274,11 +282,11 @@ function calculate_correlation() {
 			allpoint_number = allpoint_dependent.length;
 			var depedent_number = dependent.length;
 			if (depedent_number < 2) {
-				var corr = "点数过少，不符合计算要求";
-				var tmp_pvalue = "点数过少，不符合计算要求";
+				var corr = "点数过少，无法计算相关性系数";//点数为1或0无法计算相关性系数
+				var tmp_pvalue = "点数过少，无法计算p-value";//点数为1或0无法计算p_value
 			} else if (depedent_number == 2) {
 				var corr = pearsonCorrelation(independent, dependent).toExponential(6); //计算相关性系数
-				var tmp_pvalue = "点数过少，不符合计算要求";
+				var tmp_pvalue = "点数过少，无法计算p-value";//点数为2无法计算p_value
 			} else {
 				var corr = pearsonCorrelation(independent, dependent).toExponential(6); //计算相关性系数
 				var tvalue = corr * Math.sqrt((dependent.length - 2) / (1 - corr * corr)); //分别计算每个type的t-value的值
@@ -290,11 +298,11 @@ function calculate_correlation() {
 			infomation[x_set[0]]["p_value"] = tmp_pvalue;
 		}
 		if (allpoint_number < 2) {
-			var allpoint_correlation = "点数过少，不符合计算要求";
-			var allpoint_pvalue = "点数过少，不符合计算要求";
+			var allpoint_correlation = "点数过少，无法计算相关性系数";//allpoint_correlation用来计算所有点的相关性系数，不区分tissue类型
+			var allpoint_pvalue = "点数过少，无法计算p-value";//allpoint_pvalue用来计算所有点的p_value，不区分tissue类型
 		} else if (allpoint_number == 2) {
 			var allpoint_correlation = pearsonCorrelation(allpoint_independent, allpoint_dependent).toExponential(6); //计算所有点的相关性系数和p-value
-			var allpoint_pvalue = "点数过少，不符合计算要求";
+			var allpoint_pvalue = "点数过少，无法计算p-value";
 		} else {
 			var allpoint_correlation = pearsonCorrelation(allpoint_independent, allpoint_dependent).toExponential(6); //计算所有点的相关性系数和p-value
 			var allpoint_tvalue = allpoint_correlation * Math.sqrt((allpoint_dependent.length - 2) / (1 - allpoint_correlation *
@@ -325,7 +333,7 @@ function calculate_correlation() {
 					"</td><td>" + dataTable[i].p_value + "</td></tr>";
 				$("#example tbody").append(tbody);
 			}
-			$('#example').DataTable({
+			$('#example').DataTable({//格式化处理表格操作的特殊情况结果和页数提示
 				dom: 'Bfrtip',
 				language: {
 					emptyTable: '无符合条件的记录',
@@ -456,14 +464,14 @@ function switchToUse() { //切换到用户指南
 	disapp_plot();
 }
 
-function cancel_choose() {
+function cancel_choose() {//快速隐藏所有点，方便后续勾选个别点查看
 	for (var aim in Pointout) {
 		console.log(aim);
 		chart.hide(aim);
 	}
 }
 
-function appear_choose() {
+function appear_choose() {//快速显示所有点
 	for (var aim in Pointout) {
 		chart.show(aim);
 	}

@@ -1,0 +1,44 @@
+@RQ01
+
+Upload files by category and generate scatter plot.
+
+
+@RQ02
+
+Data display is marked by property separations.
+
+
+@RQ03
+
+Screening of genetic data.
+
+
+@RQ04
+
+Correlation coefficient display.
+
+
+@RQ05
+
+Detailed information display of scattered points (under mouse behavior).
+
+
+
+@RQ07
+
+Attribute query or correlation coefficient query . 
+
+
+@RQ08
+
+Page jumps and displays normally.  
+
+
+@RQ09
+
+Chinese supports display function.
+
+
+@RQ10
+
+Important features provide user friendly instructions.

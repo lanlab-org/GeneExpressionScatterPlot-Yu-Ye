@@ -1,0 +1,528 @@
+@T001
+
+Test title: test case for requirement 1
+
+Test for: RQ01
+
+Description: The user can choose the corresponding file to upload to the web page, and the back-end code will make use of the correct information to realize the synthesis of the attribute set, and the completed set will be scattered according to the plane cartesian coordinate system of the two genes.
+
+Rationale: As the core function of the software, this function mainly provides a data visualization way for users, so that users can quickly scatter the required data.
+
+Input:
+g1.json:S5000-g1.json
+g2.json:S5000-g2.json
+info.json:S5000-info.json
+
+Expected output: The file can be uploaded, the page can be displayed, the small data file response time does not exceed 1 seconds.
+
+Actual output:After clicking submit, the display time is less than 1 seconds.
+https://b23.tv/yI9jeN
+
+
+Diagnosis:
+
+Status: P
+
+Signature: Wang Ruyun
+
+Date: 2020-4-20
+
+
+
+@T001b
+
+Test title: test case for requirement 1
+
+Test for: RQ01
+
+Description: The user can choose the corresponding file to upload to the web page, and the back-end code will make use of the correct information to realize the synthesis of the attribute set, and the completed set will be scattered according to the plane cartesian coordinate system of the two genes.
+
+Rationale: As the core function of the software, this function mainly provides a data visualization way for users, so that users can quickly scatter the required data.
+
+Input:
+g1.json:N2_n1_S10000_info_miss_rate0.00_g1.json
+g2.json:N2_n1_S10000_info_miss_rate0.00_g2.json
+info.json:N2_n1_S10000_info_miss_rate0.00_info.json
+
+
+Expected output: The file can be uploaded, the page can be displayed, the medium data file response time does not exceed 2 seconds.
+
+Actual output:Response time does not exceed 2 seconds.
+https://b23.tv/yI9jeN
+
+Diagnosis:
+
+Status: P
+
+Signature: Wang Ruyun
+
+Date:2020-4-20
+
+
+
+@T001c
+
+Test title: test case for requirement 1
+
+Test for: RQ01
+
+Description: The user can choose the corresponding file to upload to the web page, and the back-end code will make use of the correct information to realize the synthesis of the attribute set, and the completed set will be scattered according to the plane cartesian coordinate system of the two genes.
+
+Rationale: As the core function of the software, this function mainly provides a data visualization way for users, so that users can quickly scatter the required data.
+
+Input:
+g1.json:N2_n1_S20000_info_miss_rate0.00_g1.json
+g2.json:N2_n1_S20000_info_miss_rate0.00_g2.json
+info.json:N2_n1_S20000_info_miss_rate0.00_info.json
+
+
+Expected output: The file can be uploaded, the page can be displayed, the medium data file response time does not exceed 2 seconds.
+
+Actual output:Response time does not exceed 2 seconds.
+https://b23.tv/yI9jeN
+
+
+Diagnosis:
+
+Status: P
+
+Signature: Wang Ruyun
+
+Date: 2020-4-20
+
+
+@T001d
+
+Test title: test case for requirement 1
+
+Test for: RQ01
+
+Description: The user can choose the corresponding file to upload to the web page, and the back-end code will make use of the correct information to realize the synthesis of the attribute set, and the completed set will be scattered according to the plane cartesian coordinate system of the two genes.
+
+Rationale: As the core function of the software, this function mainly provides a data visualization way for users, so that users can quickly scatter the required data.
+
+Input:
+g1.json:S100000-g1.json
+g2.json:S100000-g1.json
+info.json:S100000-g1.json
+
+
+Expected output: The file can be uploaded, the page can be displayed, the big data file response time does not exceed 10 seconds.
+
+Actual output:The amount of data is too large, the display time is about 10s.
+https://b23.tv/yI9jeN
+
+Diagnosis:
+
+Status: P
+
+Signature: Wang Ruyun
+
+Date: 2020-5-13
+
+
+
+@T002
+
+Test title: test case for requirement 2
+
+Test for: RQ02
+
+Description: After the user obtains the corresponding scatter graph, the function distinguishes the collection of points of different attributes with different colors.
+
+Rationale: The set of points for all the data is rendered in color based on the details.
+
+Input:
+g1.json:S5000-g1.json
+g2.json:S5000-g2.json
+info.json:S5000-info.json
+
+Expected output: Different sets of points have different colors, and the colors do not repeat. There also need to be different colors at the bottom of the image for different attributes.
+
+Actual output:
+https://b23.tv/opVWVv
+
+Diagnosis:
+
+Status: P
+
+Signature: Wang Ruyun
+
+Date: 2020-5-03
+
+
+
+
+
+@T003
+
+Test title: test case for requirement 3
+
+Test for: RQ03
+
+Description: You can select the properties you want to display based on user intent.
+
+Rationale: For a particular property, the corresponding set of points can be hidden and displayed after clicking the color before the property. In turn, data can be filtered and rendered.
+
+Input:
+g1.json:S5000-g1.json
+g2.json:S5000-g2.json
+info.json:S5000-info.json
+
+Expected output: After the completion of data loading, all the attribute sets and their colors will be displayed at the bottom. After selecting the corresponding target, click to achieve the rendering and hiding of the attribute.
+
+Actual output:
+https://b23.tv/opVWVv
+
+Diagnosis:
+
+Status:P 
+
+Signature: Wang Ruyun
+
+Date:2020-5-03 
+
+
+
+@T004 
+
+Test title: test case for requirement 4
+
+Test for: RQ04
+
+Description: The correlation coefficient calculation function for all attributes needs to be implemented.
+
+Rationale: In the process of data processing, researchers have a certain need to calculate the relationship between the influence of two genes of a certain attribute value, so the calculation function of correlation coefficient is added.
+
+Input:
+P50_g1.json
+P50_g2.json
+P50_info.json
+
+Expected output:  the property correlation coefficient=1, and the p-value =0.
+
+Actual output:
+https://b23.tv/aKwFoo
+
+Diagnosis:
+
+Status: P
+
+Signature: Wang Ruyun
+
+Date: 2020-5-26
+
+
+
+@T004b
+
+Test title: test case for requirement 4
+
+Test for: RQ04
+
+Description: The correlation coefficient calculation function for all attributes needs to be implemented.
+
+Rationale: In the process of data processing, researchers have a certain need to calculate the relationship between the influence of two genes of a certain attribute value, so the calculation function of correlation coefficient is added.
+
+Input:
+N2_n1_S10000_info_miss_rate0.00_g1.json
+N2_n1_S10000_info_miss_rate0.00_g2.json
+N2_n1_S10000_info_miss_rate0.00_info.json
+
+Expected output: 
+One group is roughly proportional，the p-value =0;The other group had no effect.
+
+Actual output:
+https://b23.tv/aKwFoo
+
+Diagnosis:
+
+Status: P
+
+Signature: Wang Ruyun
+
+Date: 2020-5-27
+
+
+
+@T004c
+
+Test title: test case for requirement 4
+
+Test for: RQ04
+
+Description: The correlation coefficient calculation function for all attributes needs to be implemented.
+
+Rationale: In the process of data processing, researchers have a certain need to calculate the relationship between the influence of two genes of a certain attribute value, so the calculation function of correlation coefficient is added.
+
+Input:
+P100_g1.json
+P100_g2.json
+P100_info.json
+
+Expected output: 
+The points follow the normal distribution.
+
+Actual output:
+https://b23.tv/aKwFoo
+
+Diagnosis:
+
+Status: P
+
+Signature: 
+
+Date: 2020-5-26
+
+
+
+
+@T005 
+
+Test title: test case for requirement 5
+
+Test for: RQ05
+
+Description: The corresponding information carried by this property is displayed when the mouse is moved over the scatter.
+
+Rationale: The attribute set itself carries its own information, and the display of information provided here is easier for users to review and recognize
+
+Input: Mouse over to the point you want to know.
+
+Expected output: Below the dot is an information box that displays the information that comes with it.
+
+Actual output:
+https://b23.tv/EEjids
+
+Diagnosis:
+
+Status:P 
+
+Signature: Wang Ruyun
+
+Date: 2020-5-13
+
+
+
+
+@T007 
+
+Test title: test case for requirement 7
+
+Test for: RQ07
+
+Description: After the user submits an individual query of attributes or a correlation coefficient query. 
+
+Rationale: none
+
+Input:
+g1.json:S5000-g1.json
+g2.json:S5000-g2.json
+info.json:S5000-info.json
+
+Expected output: The response time to the query shall not exceed 1 seconds, and the corresponding query results shall be displayed on the screen within this time.
+
+Actual output:
+https://b23.tv/njv7lT
+
+Diagnosis:
+
+Status: P
+
+Signature: Wang Ruyun
+
+Date:2020-5-13 
+
+
+@T007b 
+
+Test title: test case for requirement 7
+
+Test for: RQ07
+
+Description: After the user submits an individual query of attributes or a correlation coefficient query. 
+
+Rationale: none
+
+Input: 
+g1.json:search_g1.json
+g2.json:search_g2.json
+info.json:search_info.json
+
+Expected output: The response time to the query shall not exceed 1 seconds, and the corresponding query results shall be displayed on the screen within this time.
+
+Actual output:
+https://b23.tv/njv7lT
+
+Diagnosis:
+
+Status: P
+
+Signature: Wang Ruyun
+
+Date:2020-5-13
+
+
+@T007c 
+
+Test title: test case for requirement 7
+
+Test for: RQ07
+
+Description: After the user submits an individual query of attributes or a correlation coefficient query. 
+
+Rationale: none
+
+Input: 
+g1.json:search100_g1.json
+g2.json:search100_g2.json
+info.json:search100_info.json
+
+Expected output: The response time to the query shall not exceed 2 seconds, and the corresponding query results shall be displayed on the screen within this time.
+
+Actual output:
+https://b23.tv/njv7lT
+
+Diagnosis:
+
+Status: P
+
+Signature: Wang Ruyun
+
+Date:2020-5-13
+
+
+
+@T008 
+
+Test title: test case for requirement 8
+
+Test for: RQ08
+
+Description: In the use of the system, after jumping back to the "file selection" page from other pages, there is no display confusion.
+Rationale:
+
+Input:Select jump page.
+
+Expected output: Page display is normal
+
+Actual output:
+
+Diagnosis:
+
+Status: 
+
+Signature: Wang Ruyun
+
+Date: 
+
+
+
+
+@T009 
+
+Test title: test case for requirement 9
+
+Test for: RQ09
+
+Description: Data export, Chinese display does not appear garbled code
+
+Rationale:
+
+Input:The data is exported as CSV.
+
+Expected output: Interface display is normal.
+
+Actual output:
+Inconsistent with display in web page.
+http://m.qpic.cn/psc?/V13TVzVU3hBV8n/tS3tY63exiZNUWwJevnZGttK*GKEA.K4QGjDJH6KBDyfyiuD4QWC.Qv5H7Dsyg1XMbdu7FixvwDD*VpokaJnXGcajXk4xvoSIsojNehY5sg!/b&bo=SAFGAQAAAAARFy4!&rf=viewer_4
+
+Diagnosis: Export to CSV is still not normal.
+
+Status: F
+
+Signature: Wang Ruyun
+
+Date: 2020-4-20
+
+
+@T009b 
+
+Test title: test case for requirement 9
+
+Test for: RQ09
+
+Description: Data export, Chinese display does not appear garbled code
+
+Rationale:
+
+Input:The data is exported as CSV.
+g1-30.json
+g2-30.json
+info-30.json
+
+Expected output: Interface display is normal.
+
+Actual output:
+https://b23.tv/1m0cSy
+
+Diagnosis: 
+
+Status:P
+
+Signature: Wang Ruyun
+
+Date: 2020-5-19
+
+
+
+@T010 
+
+Test title: test case for requirement 10
+
+Test for: RQ10
+
+Description: Important features provide user friendly instructions.
+
+Rationale:
+
+Input: Click to enter the user guide
+
+Expected output:The data analysis section features detailed user descriptions.
+
+Actual output:http://m.qpic.cn/psc?/V13TVzVU3hBV8n/ZOHqlMnlPhi5393oWyanhK1zCxmclRTRhsEdVOq8ufrY6Fbef2ldak5DDkLSno7O7oHNfwsWf4PU2SsJE57S2g!!/b&bo=QwWCAQAAAAARB*U!&rf=viewer_4
+
+Diagnosis:
+
+Status: P
+
+Signature: Wang Ruyun
+
+Date: 2020-4-16
+
+
+@T010b
+
+Test title: test case for requirement 10
+
+Test for: RQ10
+
+Description: Important features provide user friendly instructions.
+
+Rationale:
+
+Input: Click to enter the user guide
+
+Expected output: The dot display section provides user friendly instructions.
+
+Actual output: http://m.qpic.cn/psc?/V13TVzVU3hBV8n/ZOHqlMnlPhi5393oWyanhHWPz*mt3Ent*G.NUyScRxRy5v5PNsZ4XknXJy8f3Qz02.nqHVHI5QwEN64Rq.Cz4Q!!/b&bo=NwU2AgAAAAARBzY!&rf=viewer_4
+
+Diagnosis:
+
+Status: P
+
+Signature: Wang Ruyun
+
+Date: 2020-4-16
+
+
